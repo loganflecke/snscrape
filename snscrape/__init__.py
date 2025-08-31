@@ -24,9 +24,10 @@ all = [] # Define all here
 def _import_modules():
 	prefixLen = len(name) + 1
 	for _, moduleName, _ in pkgutil.iter_modules(path, prefix=f'{name}.'):
-	moduleNameWithoutPrefix = moduleName[prefixLen:]
-	all.append(moduleNameWithoutPrefix)
-	module = importlib.import_module(moduleName)
-	globals()[moduleNameWithoutPrefix] = module
+		moduleNameWithoutPrefix = moduleName[prefixLen:]
+		all.append(moduleNameWithoutPrefix)
+		module = importlib.import_module(moduleName)
+		globals()[moduleNameWithoutPrefix] = module
 _import_modules()
+
 
